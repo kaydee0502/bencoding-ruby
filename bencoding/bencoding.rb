@@ -1,7 +1,7 @@
 require 'json'
 
 class Bencoding
-  class Encoder
+  class Encoder < Bencoding
   end
 
   class Decoder < Bencoding
