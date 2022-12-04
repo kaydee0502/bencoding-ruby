@@ -2,6 +2,7 @@ require 'json'
 
 class Bencoding
   class Encoder < Bencoding
+    # WIP
   end
 
   class Decoder < Bencoding
@@ -32,9 +33,7 @@ class Bencoding
     end
 
     def parse(slice = @file, iter = 0)
-      p "in parse"
       if @initiaters.include? slice[iter].to_sym
-        @stack.append(iter)
         res, iter = @initiaters[slice[iter].to_sym].(slice, iter+1)
       elsif slice[iter].is_integer?
         res, iter = form_str(slice, iter)
